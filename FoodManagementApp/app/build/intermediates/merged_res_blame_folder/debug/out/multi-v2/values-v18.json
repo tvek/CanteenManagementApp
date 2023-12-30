@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.cms.canteen.foodmanagementapp-mergeDebugResources-34:/values-v18/values-v18.xml",
+            "map": [
+                {
+                    "source": "/home/thomas/.gradle/caches/transforms-4/6cc13111a8da9ae9c33d6679f716f583/transformed/appcompat-1.6.1/res/values-v18/values-v18.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
+                    }
+                }
+            ]
+        }
+    ]
+}

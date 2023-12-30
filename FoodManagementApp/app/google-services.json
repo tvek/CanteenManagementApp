@@ -8,6 +8,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:656305233501:android:9239dcf0bce44a380e37b4",
+        "android_client_info": {
+          "package_name": "com.cms.canteen.foodmanagementapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH4QOngipv3kU2FojShGwelRA-yUMfaac"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:656305233501:android:247009566d2ec4430e37b4",
         "android_client_info": {
           "package_name": "com.example.hp.myapplication"
