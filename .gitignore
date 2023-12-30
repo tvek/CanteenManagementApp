@@ -1,1 +1,3 @@
 FoodManagementApp/app/build/*
+FoodManagementApp/.idea/*
+FoodManagementApp/.gradle/*
