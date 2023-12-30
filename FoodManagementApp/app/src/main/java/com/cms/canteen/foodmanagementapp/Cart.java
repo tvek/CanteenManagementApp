@@ -4,6 +4,8 @@ import android.content.DialogInterface;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.View;
@@ -40,6 +42,31 @@ public class Cart extends AppCompatActivity {
     List<Order> cart = new ArrayList<>();
     CartAdapter adapter;
 
+    void addSwipeToDelete(){
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            public boolean onMove(RecyclerView recyclerView,
+                                  RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+//                    final int fromPos = viewHolder.getAdapterPosition();
+//                    final int toPos = viewHolder.getAdapterPosition();
+//                    // move item in `fromPos` to `toPos` in adapter.
+                return true;// true if moved, false otherwise
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                //Remove swiped item from list and notify the RecyclerView
+                Order currentElement = cart.get(viewHolder.getLayoutPosition());
+                new Database(Cart.this).removeFromCart(currentElement);
+                cart.remove(viewHolder.getLayoutPosition());
+                adapter.notifyItemRemoved(viewHolder.getLayoutPosition());
+                updateTotalPrice();
+                
+            }
+        };
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +92,8 @@ public class Cart extends AppCompatActivity {
             }
         });
         loadListFood();
+        updateTotalPrice();
+        addSwipeToDelete();
     }
 
     private void showAlertDialog() {
@@ -108,6 +137,9 @@ public class Cart extends AppCompatActivity {
         adapter = new CartAdapter(cart,this);
         recyclerView.setAdapter(adapter);
 
+    }
+
+    private void updateTotalPrice() {
         //total price
         int total = 0;
         for(Order order:cart)
@@ -116,6 +148,5 @@ public class Cart extends AppCompatActivity {
         NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
 
         txtTotalPrice.setText(fmt.format(total));
-
     }
 }
