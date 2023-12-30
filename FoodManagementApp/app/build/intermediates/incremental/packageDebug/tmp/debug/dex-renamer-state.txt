@@ -1,4 +1,4 @@
-#Sat Dec 30 14:51:41 JST 2023
+#Sat Dec 30 15:40:27 JST 2023
 base.0=/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

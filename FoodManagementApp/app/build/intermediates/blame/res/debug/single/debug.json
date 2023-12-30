@@ -24,20 +24,20 @@
         "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/color/abc_tint_default.xml"
     },
     {
-        "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_longpressed_holo.9.png.flat",
-        "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable-mdpi-v4/abc_list_longpressed_holo.9.png"
-    },
-    {
-        "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+        "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
+        "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable-hdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
     },
     {
         "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_shopping_cart_black_24dp.png.flat",
         "source": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/generated/res/pngs/debug/drawable-hdpi/ic_shopping_cart_black_24dp.png"
     },
     {
-        "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
-        "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable-hdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
+        "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_longpressed_holo.9.png.flat",
+        "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable-mdpi-v4/abc_list_longpressed_holo.9.png"
     },
     {
         "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi_met_ic_clear.png.flat",
@@ -60,20 +60,20 @@
         "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable/abc_cab_background_internal_bg.xml"
     },
     {
-        "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable_background.xml.flat",
-        "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/lib-1.0.2.aar/b6397b008421059b8cc1e0253d0fb86e/res/drawable/background.xml"
-    },
-    {
         "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
         "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable-xxhdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
     },
     {
-        "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_design_ic_visibility.xml.flat",
-        "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/5764d5d4d073e6260d84909c385f1ee7/res/drawable-anydpi-v21/design_ic_visibility.xml"
+        "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable_background.xml.flat",
+        "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/lib-1.0.2.aar/b6397b008421059b8cc1e0253d0fb86e/res/drawable/background.xml"
     },
     {
         "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/color-v23_abc_tint_switch_track.xml.flat",
         "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_design_ic_visibility.xml.flat",
+        "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/5764d5d4d073e6260d84909c385f1ee7/res/drawable-anydpi-v21/design_ic_visibility.xml"
     },
     {
         "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/layout_design_navigation_item_subheader.xml.flat",
@@ -100,12 +100,12 @@
         "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable-mdpi-v4/abc_list_pressed_holo_light.9.png"
     },
     {
-        "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
-        "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable-xhdpi-v4/abc_list_pressed_holo_dark.9.png"
-    },
-    {
         "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable-xhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
+        "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable-xhdpi-v4/abc_list_pressed_holo_dark.9.png"
     },
     {
         "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
@@ -284,12 +284,12 @@
         "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/layout/abc_popup_menu_item_layout.xml"
     },
     {
-        "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
-        "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable-hdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
-    },
-    {
         "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable-xhdpi-v4/abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable-hdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
         "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
@@ -432,12 +432,12 @@
         "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable-xxhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
-        "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
-        "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_015.png"
-    },
-    {
         "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable-xxhdpi-v4/abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "/home/thomas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d64fb41b5bea412c97b22e6cf0470f81/res/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_015.png"
     },
     {
         "merged": "/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",

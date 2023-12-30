@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Dec 30 14:51:42 JST 2023
+#Sat Dec 30 15:40:27 JST 2023
 1.base=/home/thomas/POC/FoodDelivery/CMSFoodDeliveryApp/CanteenManagementApp/FoodManagementApp/app/build/intermediates/merged_assets/debug/mergeDebugAssets/out
 2.path=Fonts/NABILA.TTF
 0.baseType=DIRECTORY
