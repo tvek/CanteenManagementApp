@@ -4,8 +4,8 @@
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
-    <string name="SignUp">signup</string>
-    <string name="SignIn">signin</string>
+    <string name="SignUp">sign up</string>
+    <string name="SignIn">sign in</string>
     <string name="slogan">No matter where you are we will find you and feed you.</string>
     <string name="name_of_category">Name of Category</string>
     <string name="name_of_food_item">Name of Food Item</string>
