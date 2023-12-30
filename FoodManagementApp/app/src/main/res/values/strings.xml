@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">CMS Eats</string>
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+    <string name="SignUp">signup</string>
+    <string name="SignIn">signin</string>
+    <string name="slogan">No matter where you are we will find you and feed you.</string>
+    <string name="name_of_category">Name of Category</string>
+    <string name="name_of_food_item">Name of Food Item</string>
+    <string name="food_item_description">Food Description</string>
+    <string name="currency">INR</string>
+
+    <string name="slide_1_title">CMS Eats</string>
+    <string name="slide_1_desc">One stop solution for all your canteen needs!</string>
+
+    <string name="slide_2_title">Order from Anywhere</string>
+    <string name="slide_2_desc">Order your food from anywhere and avoid long waiting queue at canteen</string>
+
+    <string name="slide_3_title">Great Discounts</string>
+    <string name="slide_3_desc">Best Discount on Every Order!</string>
+
+    <string name="slide_4_title">Instant Updates</string>
+    <string name="slide_4_desc">App provides instant notification on your mobile whenever your delicious food/gifts order is ready for collection</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> CMS Eats -> clear data</string>
+    <string name="play_again">Play Again</string>
+    <string name="title_activity_home">Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+</resources>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "656305233501",
+    "firebase_url": "https://cmseats-ccc23-default-rtdb.firebaseio.com",
+    "project_id": "cmseats-ccc23",
+    "storage_bucket": "cmseats-ccc23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:656305233501:android:247009566d2ec4430e37b4",
+        "android_client_info": {
+          "package_name": "com.example.hp.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH4QOngipv3kU2FojShGwelRA-yUMfaac"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
