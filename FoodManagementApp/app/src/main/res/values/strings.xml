@@ -12,6 +12,8 @@
     <string name="food_item_description">Description</string>
     <string name="price">Price</string>
     <string name="add_to_cart">Add to Cart</string>
+    <string name="ordered_items">Ordered Items</string>
+    <string name="total_price">Total Price</string>
 
     <string name="slide_1_title">CMS Eats</string>
     <string name="slide_1_desc">One stop solution for all your canteen needs!</string>

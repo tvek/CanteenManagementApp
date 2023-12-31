@@ -33,6 +33,7 @@
             android:theme="@style/AppTheme" />
         <activity android:name="com.cms.canteen.foodmanagementapp.FoodList" />
         <activity android:name="com.cms.canteen.foodmanagementapp.FoodDetail" />
+        <activity android:name="com.cms.canteen.foodmanagementapp.OrdersActivity" />
         <activity android:name="com.cms.canteen.foodmanagementapp.Cart"></activity>
     </application>
 
