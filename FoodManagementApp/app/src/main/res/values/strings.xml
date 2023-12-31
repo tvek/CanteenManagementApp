@@ -9,8 +9,9 @@
     <string name="slogan">No matter where you are we will find you and feed you.</string>
     <string name="name_of_category">Name of Category</string>
     <string name="name_of_food_item">Name of Food Item</string>
-    <string name="food_item_description">Food Description</string>
-    <string name="currency">INR</string>
+    <string name="food_item_description">Description</string>
+    <string name="price">Price</string>
+    <string name="add_to_cart">Add to Cart</string>
 
     <string name="slide_1_title">CMS Eats</string>
     <string name="slide_1_desc">One stop solution for all your canteen needs!</string>

@@ -1,10 +1,12 @@
 package com.cms.canteen.foodmanagementapp;
 
+import com.cms.canteen.foodmanagementapp.Common.Common;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ public class FoodDetail extends AppCompatActivity {
 
     TextView food_name,food_price,food_description;
     ImageView food_image;
+    Button btnAddToCart;
     CollapsingToolbarLayout collapsingToolbarLayout;
     FloatingActionButton btncart;
     ElegantNumberButton numberButton;
@@ -47,8 +50,9 @@ public class FoodDetail extends AppCompatActivity {
         //init view
         numberButton = (ElegantNumberButton)findViewById(R.id.number_button);
         btncart = (FloatingActionButton)findViewById(R.id.btncart);
+        btnAddToCart = (Button)findViewById(R.id.btnAddToCart);
 
-        btncart.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new Database(getBaseContext()).addToCart(new Order(foodId,
@@ -58,7 +62,9 @@ public class FoodDetail extends AppCompatActivity {
                         currentFood.getDiscount()));
                 Toast.makeText(FoodDetail.this, "Added to cart", Toast.LENGTH_SHORT).show();
             }
-        });
+        };
+        btnAddToCart.setOnClickListener(clickListener);
+        btncart.setOnClickListener(clickListener);
 
         food_description = (TextView)findViewById(R.id.food_description);
         food_name = (TextView)findViewById(R.id.food_name);
@@ -89,7 +95,7 @@ public class FoodDetail extends AppCompatActivity {
                 Glide.with(getBaseContext()).load(currentFood.getImage()).into(food_image);
 
                 collapsingToolbarLayout.setTitle(currentFood.getName());
-                food_price.setText(currentFood.getName());
+                food_price.setText(Common.addDefaultCurrency(Integer.parseInt(currentFood.getPrice())));
                 food_description.setText(currentFood.getDescription());
             }
 
