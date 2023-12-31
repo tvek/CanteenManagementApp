@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.cms.canteen.foodmanagementapp.WelcomeActivity"
+            android:name=".ManageCategory"
+            android:exported="false" />
+        <activity
+            android:name=".WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,20 +24,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.cms.canteen.foodmanagementapp.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/title_activity_welcome"
             android:theme="@style/AppTheme" />
-        <activity android:name="com.cms.canteen.foodmanagementapp.SignIn"
-            />
-        <activity android:name="com.cms.canteen.foodmanagementapp.SignUp" />
+        <activity android:name=".SignIn" />
+        <activity android:name=".SignUp" />
         <activity
-            android:name="com.cms.canteen.foodmanagementapp.Home"
+            android:name=".Home"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme" />
-        <activity android:name="com.cms.canteen.foodmanagementapp.FoodList" />
-        <activity android:name="com.cms.canteen.foodmanagementapp.FoodDetail" />
-        <activity android:name="com.cms.canteen.foodmanagementapp.OrdersActivity" />
-        <activity android:name="com.cms.canteen.foodmanagementapp.Cart"></activity>
+        <activity android:name=".FoodList" />
+        <activity android:name=".FoodDetail" />
+        <activity android:name=".OrdersActivity" />
+        <activity android:name=".Cart" />
     </application>
 
 </manifest>

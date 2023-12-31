@@ -15,10 +15,11 @@ public class Request {
 
     private String Status;
 
-    public static String STATUS_PREPARING = "Preparing";
-    public static String STATUS_READY = "Ready";
-    public static String STATUS_COMPLETED = "Completed";
-    public static List<String> STATUS_LIST = new ArrayList<String>(Arrays.asList(STATUS_PREPARING, STATUS_READY, STATUS_COMPLETED));
+    public static String STATUS_PREPARING = "1-Preparing";
+    public static String STATUS_READY = "2-Ready";
+    public static String STATUS_COMPLETED = "3-Completed";
+    public static String STATUS_CANCELLED = "4-Cancelled";
+    public static List<String> STATUS_LIST = new ArrayList<String>(Arrays.asList(STATUS_PREPARING, STATUS_READY, STATUS_COMPLETED, STATUS_CANCELLED));
 
     public Request(){
 

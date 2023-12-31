@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class OrdersActivity extends AppCompatActivity {
@@ -62,8 +64,15 @@ public class OrdersActivity extends AppCompatActivity {
     }
 
     private void loadOrders() {
+        Query query;
+        if ((User.USER_TYPE_ADMIN.equals(Common.currentUser.getUsertype()))
+                && (true == isAdminPageView)) {
+            query = requests;
+        } else {
+            query = requests.orderByChild("phone").equalTo(Common.currentUser.getPhone());
+        }
         adapter = new FirebaseRecyclerAdapter<Request, OrdersViewHolder>(Request.class,R.layout.orders_list_item,
-                OrdersViewHolder.class,requests.orderByChild("phone").equalTo(Common.currentUser.getPhone()))
+                OrdersViewHolder.class,query)
                 //is like select query
         {
             @Override
@@ -78,6 +87,18 @@ public class OrdersActivity extends AppCompatActivity {
                     viewHolder.status.setEnabled(false);
                 }
                 viewHolder.status.setSelection(Request.STATUS_LIST.indexOf(model.getStatus()));
+                viewHolder.status.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
+                        model.setStatus(Request.STATUS_LIST.get(pos));
+                        adapter.getRef(position).setValue(model);
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
 
                 // Update Product and Quantity
                 String ordersData = "";

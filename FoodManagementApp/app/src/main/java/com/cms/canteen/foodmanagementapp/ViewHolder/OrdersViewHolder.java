@@ -1,6 +1,7 @@
 package com.cms.canteen.foodmanagementapp.ViewHolder;
 
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -13,11 +14,16 @@ import com.cms.canteen.foodmanagementapp.Model.Request;
 import com.cms.canteen.foodmanagementapp.OrdersActivity;
 import com.cms.canteen.foodmanagementapp.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class OrdersViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
     public TextView items;
     public TextView totalPrice;
     public Spinner status;
+
+    private List<View.OnClickListener> mListener = new ArrayList<View.OnClickListener>();
 
     public OrdersViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -38,4 +44,5 @@ public class OrdersViewHolder extends RecyclerView.ViewHolder implements View.On
     public void onClick(View view) {
 
     }
+
 }
