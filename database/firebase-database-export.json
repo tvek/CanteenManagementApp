@@ -1,0 +1,103 @@
+{
+  "Category": [
+    {
+      "CategoryId": 0,
+      "Image": "https://i.pinimg.com/1200x/3d/e3/74/3de374cc080025b9affdc1912dd2461e.jpg",
+      "Name": "Today's Special"
+    },
+    {
+      "CategoryId": "1",
+      "Image": "https://i0.wp.com/www.onceuponachef.com/images/2020/09/Sprinkle-Funfetti-Cake.jpg?resize=760%2C896&ssl=1",
+      "Name": "Cake"
+    },
+    {
+      "CategoryId": "2",
+      "Image": "https://img.freepik.com/free-photo/fresh-cocktails-with-ice-lemon-lime-fruits-generative-ai_188544-12370.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1703203200&semt=sph",
+      "Name": "Drinks"
+    },
+    {
+      "CategoryId": 3,
+      "Image": "https://www.twopeasandtheirpod.com/wp-content/uploads/2017/09/Sweet-and-Salty-Snack-Board-2.jpg",
+      "Name": "Snacks"
+    },
+    {
+      "CategoryId": 4,
+      "Image": "https://thumbs.dreamstime.com/b/various-varieties-ice-cream-cones-various-varieties-ice-cream-cones-mint-blueberry-strawberry-pistachio-cherry-158155767.jpg",
+      "Name": "Icecream"
+    }
+  ],
+  "Foods": [
+    null,
+    {
+      "Description": "Delicious Pastry Cake",
+      "Discount": "0",
+      "Image": "https://www.elloras.in/cdn/shop/products/Choco-Fudge-Pastry_1200x1200.jpg?v=1660091998",
+      "MenuId": "1",
+      "Name": "Chocolate Cake",
+      "Price": "50"
+    },
+    {
+      "Description": "Delicious Pastry Cake",
+      "Discount": "0",
+      "Image": "https://merwans.co.in/image/cache/catalog/pastry/042%20Exotic%20Black%20Forest%20Pastry-550x550.png",
+      "MenuId": "1",
+      "Name": "Black Forest",
+      "Price": "40"
+    }
+  ],
+  "Requests": {
+    "1703894661640": {
+      "address": "Minamiurawa, Japan",
+      "name": "abhishek",
+      "phone": "09856471230",
+      "total": "$0.00"
+    },
+    "1703898341171": {
+      "address": "Minamiurawa, Japan",
+      "foods": [
+        {
+          "discount": "10",
+          "price": "100",
+          "productId": "1",
+          "productName": "Choclate Cake",
+          "quantity": "2"
+        }
+      ],
+      "name": "abhishek",
+      "phone": "09856471230",
+      "total": "$200.00"
+    },
+    "1703995704223": {
+      "address": "Saitama, Japan",
+      "foods": [
+        {
+          "discount": "0",
+          "price": "40",
+          "productId": "2",
+          "productName": "Black Forest",
+          "quantity": "2"
+        }
+      ],
+      "name": "Thomas Easo",
+      "phone": "8111842818",
+      "total": "₹80.00"
+    }
+  },
+  "User": {
+    "09856471230": {
+      "name": "abhishek",
+      "password": "12345",
+      "usertype": "general_user"
+    },
+    "8111842818": {
+      "name": "Thomas Easo",
+      "password": "12345678",
+      "usertype": "admin"
+    },
+    "9744773427": {
+      "name": "LAKSHMI P S",
+      "password": "123456789",
+      "usertype": "general_user"
+    }
+  }
+}

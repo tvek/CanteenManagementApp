@@ -1,8 +1,8 @@
 # Food_Ordering_App
 
-[This is How Final app will look !](https://www.youtube.com/watch?v=iNe31x-oNiM)
+[This is How Final app will look !]
 
-tested on API 27, redminote4
+tested on API 34, Pixel6
 
 ● Used Firebase to store restaurant data, Applied MVC pattern design style for client side & server side.
 
