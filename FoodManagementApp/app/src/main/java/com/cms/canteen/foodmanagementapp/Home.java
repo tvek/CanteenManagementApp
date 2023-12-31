@@ -5,8 +5,12 @@ import static com.cms.canteen.foodmanagementapp.Model.User.DEFAULT_USER_TYPE;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.cms.canteen.foodmanagementapp.Database.Database;
+import com.cms.canteen.foodmanagementapp.Model.Order;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
@@ -78,16 +82,19 @@ public class Home extends AppCompatActivity
         txtFullName = (TextView)headerview.findViewById(R.id.txtFullName);
         txtFullName.setText(Common.currentUser.getName());
 
-        if(DEFAULT_USER_TYPE.equals(Common.currentUser.getUsertype())) {
-            navigationView.getMenu().removeItem(R.id.admin_features);
-        }
-
         //Menu
         recycle_menu  = (RecyclerView)findViewById(R.id.recycler_menu);
         recycle_menu.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recycle_menu.setLayoutManager(layoutManager);
         loadMenu();
+
+        // Enabling User Privileges
+        if(DEFAULT_USER_TYPE.equals(Common.currentUser.getUsertype())) {
+            navigationView.getMenu().removeItem(R.id.admin_features);
+        } else {
+            addSwipeToDelete();
+        }
     }
 
     private void loadMenu() {
@@ -154,7 +161,8 @@ public class Home extends AppCompatActivity
             Common.currentUser = null;
             finish();
         } else if (id == R.id.add_category) {
-
+            Intent next = new Intent(Home.this,ManageCategory.class);
+            startActivity(next);
         } else if (id == R.id.add_food_item) {
 
         } else if (id == R.id.pending_orders) {
@@ -166,5 +174,25 @@ public class Home extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    void addSwipeToDelete(){
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            public boolean onMove(RecyclerView recyclerView,
+                                  RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+//                    final int fromPos = viewHolder.getAdapterPosition();
+//                    final int toPos = viewHolder.getAdapterPosition();
+//                    // move item in `fromPos` to `toPos` in adapter.
+                return true;// true if moved, false otherwise
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                //Remove swiped item from list and notify the RecyclerView
+                adapter.getRef(viewHolder.getLayoutPosition()).removeValue();
+            }
+        };
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(recycle_menu);
     }
 }

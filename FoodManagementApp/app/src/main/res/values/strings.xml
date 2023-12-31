@@ -15,11 +15,13 @@
     <string name="ordered_items">Ordered Items</string>
     <string name="total_price">Total Price</string>
     <string name="status">Status</string>
+    <string name="image_url">Image URL</string>
 
     <string name="admin_features">Admin Features</string>
     <string name="pending_orders">Pending Orders</string>
     <string name="add_food_items">Add Food Item</string>
     <string name="add_category">Add Category</string>
+    <string name="add">Add</string>
 
     <string name="slide_1_title">CMS Eats</string>
     <string name="slide_1_desc">One stop solution for all your canteen needs!</string>
