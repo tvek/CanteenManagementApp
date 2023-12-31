@@ -5,8 +5,17 @@ A Canteen Management App
 Tested on API 34, Pixel6
 
 ## Features
-- Used Firebase to store restaurant data, Applied MVC pattern design style for client side & server side.
-- Provided sign in/sign up function, menu and food list loading, orders management process, and intro sliders for new users.
+- Welcome/Intro sliders for first time users 
+- Sign In/ Sign Up for all users
+- Category Listing for normal users
+- Category Addition/Deletion for admin users
+- Food Item Listing for normal users
+- Food Item Addition/Deletion for admin users
+- Food Details screen for all users
+- Add/Remove Food Item to cart option for all users
+- Change the status(Preparing/Ready/Completed) of Pending orders for admin users
+- Used Firebase to store all the data
+- Used MVC pattern design style for client side & server side.
 
 ## Database Structure
 Import database JSON file from database/firebase-database-export.json
