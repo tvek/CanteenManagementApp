@@ -26,18 +26,25 @@
             android:title="Sign Out"/>
 
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
+    <group>
+        <item
+            android:id="@+id/admin_features"
+            android:title="@string/admin_features">
+            <menu>
+                <item
+                    android:id="@+id/add_category"
+                    android:icon="@android:drawable/ic_input_add"
+                    android:title="@string/add_category" />
+                <item
+                    android:id="@+id/add_food_item"
+                    android:icon="@android:drawable/ic_input_add"
+                    android:title="@string/add_food_items" />
+                <item
+                    android:id="@+id/pending_orders"
+                    android:icon="@android:drawable/ic_menu_today"
+                    android:title="@string/pending_orders" />
+            </menu>
+        </item>
+    </group>
 
 </menu>

@@ -1,9 +1,11 @@
 package com.cms.canteen.foodmanagementapp;
 
+import static com.cms.canteen.foodmanagementapp.Model.User.DEFAULT_USER_TYPE;
+
 import android.content.Intent;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
@@ -25,8 +27,6 @@ import com.cms.canteen.foodmanagementapp.ViewHolder.MenuViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.squareup.picasso.Picasso;
-
 
 
 public class Home extends AppCompatActivity
@@ -76,6 +76,10 @@ public class Home extends AppCompatActivity
         View headerview = navigationView.getHeaderView(0);
         txtFullName = (TextView)headerview.findViewById(R.id.txtFullName);
         txtFullName.setText(Common.currentUser.getName());
+
+        if(DEFAULT_USER_TYPE.equals(Common.currentUser.getUsertype())) {
+            navigationView.getMenu().removeItem(R.id.admin_features);
+        }
 
         //Menu
         recycle_menu  = (RecyclerView)findViewById(R.id.recycler_menu);
@@ -146,12 +150,15 @@ public class Home extends AppCompatActivity
             Intent next = new Intent(Home.this,OrdersActivity.class);
             startActivity(next);
         } else if (id == R.id.nav_log_out) {
+            Common.currentUser = null;
             finish();
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.add_category) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.add_food_item) {
 
-        }
+        } else if (id == R.id.pending_orders) {
+
+        } else {}
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
