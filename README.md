@@ -36,6 +36,9 @@ Import database JSON file from database/firebase-database-export.json
 <br/>
 More screenshots are present in demo_images folder
 
+## Effort Spent
+Total Effort : 72 Hours
+
 ## Developer Note
-<h5>As I am a android learner myself, all help & contribution is very well appreciated. If you find this idea or the underlying code useful, feel free to reuse it in your own projects.</h5>
+As I am a android learner myself, all help & contribution is very well appreciated. If you find this idea or the underlying code useful, feel free to reuse it in your own projects.
 

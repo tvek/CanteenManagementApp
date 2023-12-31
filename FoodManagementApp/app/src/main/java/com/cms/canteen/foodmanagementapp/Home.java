@@ -164,7 +164,8 @@ public class Home extends AppCompatActivity
             Intent next = new Intent(Home.this,ManageCategory.class);
             startActivity(next);
         } else if (id == R.id.add_food_item) {
-
+            Intent next = new Intent(Home.this,ManageFoodItem.class);
+            startActivity(next);
         } else if (id == R.id.pending_orders) {
             Intent next = new Intent(Home.this,OrdersActivity.class);
             next.putExtra(ADMIN_ORDER_INTENT_KEY, true);
