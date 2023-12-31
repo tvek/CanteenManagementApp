@@ -71,9 +71,6 @@ public class OrdersActivity extends AppCompatActivity {
                 }
                 viewHolder.items.setText(ordersData);
 
-
-                final Request local = model;
-
             }
         };
         Log.d("TAG",""+adapter.getItemCount());
