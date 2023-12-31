@@ -77,9 +77,6 @@ public class OrdersActivity extends AppCompatActivity {
                 } else {
                     viewHolder.status.setEnabled(false);
                 }
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(OrdersActivity.this,
-                        android.R.layout.simple_spinner_dropdown_item, Request.STATUS_LIST);
-                viewHolder.status.setAdapter(adapter);
                 viewHolder.status.setSelection(Request.STATUS_LIST.indexOf(model.getStatus()));
 
                 // Update Product and Quantity
