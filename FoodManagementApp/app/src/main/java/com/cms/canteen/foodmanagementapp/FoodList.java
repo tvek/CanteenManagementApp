@@ -1,8 +1,13 @@
 package com.cms.canteen.foodmanagementapp;
 
+import static com.cms.canteen.foodmanagementapp.Model.User.DEFAULT_USER_TYPE;
+import static com.cms.canteen.foodmanagementapp.Model.User.USER_TYPE_ADMIN;
+
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import android.util.Log;
@@ -10,6 +15,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.cms.canteen.foodmanagementapp.Common.Common;
 import com.cms.canteen.foodmanagementapp.Interface.ItemClickListener;
 import com.cms.canteen.foodmanagementapp.Model.Food;
 import com.cms.canteen.foodmanagementapp.ViewHolder.FoodViewHolder;
@@ -35,17 +41,19 @@ public class FoodList extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         foodList = database.getReference("Foods");
-        recyclerView = (RecyclerView)findViewById(R.id.recycler_food);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_food);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
         //get intent here
-        if(getIntent()!=null)
+        if (getIntent() != null)
             categoryId = getIntent().getStringExtra("CategoryId");
-        if(!categoryId.isEmpty() && categoryId!=null)
-        {
+        if (!categoryId.isEmpty() && categoryId != null) {
             loadListFood(categoryId);
+        }
+        if (USER_TYPE_ADMIN.equals(Common.currentUser.getUsertype())) {
+            addSwipeToDelete();
         }
     }
 
@@ -77,5 +85,25 @@ public class FoodList extends AppCompatActivity {
         };
         Log.d("TAG",""+adapter.getItemCount());
         recyclerView.setAdapter(adapter);
+    }
+
+    void addSwipeToDelete() {
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            public boolean onMove(RecyclerView recyclerView,
+                                  RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+//                    final int fromPos = viewHolder.getAdapterPosition();
+//                    final int toPos = viewHolder.getAdapterPosition();
+//                    // move item in `fromPos` to `toPos` in adapter.
+                return true;// true if moved, false otherwise
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                //Remove swiped item from list and notify the RecyclerView
+                adapter.getRef(viewHolder.getLayoutPosition()).removeValue();
+            }
+        };
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 }
