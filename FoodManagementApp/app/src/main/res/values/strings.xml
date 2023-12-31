@@ -14,6 +14,7 @@
     <string name="add_to_cart">Add to Cart</string>
     <string name="ordered_items">Ordered Items</string>
     <string name="total_price">Total Price</string>
+    <string name="status">Status</string>
 
     <string name="admin_features">Admin Features</string>
     <string name="pending_orders">Pending Orders</string>

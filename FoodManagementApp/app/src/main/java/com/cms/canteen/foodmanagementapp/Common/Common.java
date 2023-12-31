@@ -7,6 +7,8 @@ import java.util.Locale;
 
 public class Common {
     public static User currentUser;
+
+    public static String ADMIN_ORDER_INTENT_KEY = "ADMIN_ORDERS";
     public static String addDefaultCurrency(int number) {
         Locale locale = new Locale("en","IN");
         NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);

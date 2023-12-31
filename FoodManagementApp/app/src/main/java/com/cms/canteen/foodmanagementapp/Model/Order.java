@@ -16,6 +16,7 @@ public class Order {
         Quantity = quantity;
         Price = price;
         Discount = discount;
+
     }
 
     public String getProductId() {
@@ -57,4 +58,5 @@ public class Order {
     public void setDiscount(String discount) {
         Discount = discount;
     }
+
 }

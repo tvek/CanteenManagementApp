@@ -2,6 +2,7 @@ package com.cms.canteen.foodmanagementapp.ViewHolder;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,12 +14,14 @@ public class OrdersViewHolder extends RecyclerView.ViewHolder implements View.On
 
     public TextView items;
     public TextView totalPrice;
+    public Spinner status;
 
     public OrdersViewHolder(@NonNull View itemView) {
         super(itemView);
 
         items = (TextView)itemView.findViewById(R.id.order_items);
         totalPrice = (TextView) itemView.findViewById(R.id.order_price);
+        status = (Spinner) itemView.findViewById(R.id.order_status);
 
         // Currently no action on tap of element
         // itemView.setOnClickListener(this);

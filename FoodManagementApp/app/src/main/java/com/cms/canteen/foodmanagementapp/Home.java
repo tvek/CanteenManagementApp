@@ -1,5 +1,6 @@
 package com.cms.canteen.foodmanagementapp;
 
+import static com.cms.canteen.foodmanagementapp.Common.Common.ADMIN_ORDER_INTENT_KEY;
 import static com.cms.canteen.foodmanagementapp.Model.User.DEFAULT_USER_TYPE;
 
 import android.content.Intent;
@@ -157,7 +158,9 @@ public class Home extends AppCompatActivity
         } else if (id == R.id.add_food_item) {
 
         } else if (id == R.id.pending_orders) {
-
+            Intent next = new Intent(Home.this,OrdersActivity.class);
+            next.putExtra(ADMIN_ORDER_INTENT_KEY, true);
+            startActivity(next);
         } else {}
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

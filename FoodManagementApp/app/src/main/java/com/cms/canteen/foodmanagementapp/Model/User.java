@@ -7,6 +7,7 @@ public class User {
     private String UserType;
 
     public static String DEFAULT_USER_TYPE = "general_user";
+    public static String USER_TYPE_ADMIN = "admin";
 
 
     public User(){
