@@ -55,7 +55,7 @@ public class OrdersActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         requests = database.getReference("Requests");
 
-        recyclerView = (RecyclerView)findViewById(R.id.orders_list);
+        recyclerView = findViewById(R.id.orders_list);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -66,7 +66,7 @@ public class OrdersActivity extends AppCompatActivity {
     private void loadOrders() {
         Query query;
         if ((User.USER_TYPE_ADMIN.equals(Common.currentUser.getUsertype()))
-                && (true == isAdminPageView)) {
+                && (isAdminPageView)) {
             query = requests;
         } else {
             query = requests.orderByChild("phone").equalTo(Common.currentUser.getPhone());
@@ -80,12 +80,8 @@ public class OrdersActivity extends AppCompatActivity {
                 viewHolder.totalPrice.setText(model.getTotal());
 
                 // Configure Status
-                if ((User.USER_TYPE_ADMIN.equals(Common.currentUser.getUsertype()))
-                        && (true == isAdminPageView)) {
-                    viewHolder.status.setEnabled(true);
-                } else {
-                    viewHolder.status.setEnabled(false);
-                }
+                viewHolder.status.setEnabled((User.USER_TYPE_ADMIN.equals(Common.currentUser.getUsertype()))
+                        && (isAdminPageView));
                 viewHolder.status.setSelection(Request.STATUS_LIST.indexOf(model.getStatus()));
                 viewHolder.status.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override

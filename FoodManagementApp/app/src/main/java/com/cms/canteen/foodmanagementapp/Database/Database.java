@@ -35,12 +35,20 @@ public class Database extends SQLiteAssetHelper {
         if(c.moveToFirst())
         {
             do {
-                result.add(new Order(c.getString(c.getColumnIndex("ProductId")),
-                        c.getString(c.getColumnIndex("ProductName")),
-                        c.getString(c.getColumnIndex("Quantity")),
-                        c.getString(c.getColumnIndex("Price")),
-                        c.getString(c.getColumnIndex("Discount"))
-                ));
+                int cursorProductId = c.getColumnIndex("ProductId");
+                int cursorProductName = c.getColumnIndex("ProductName");
+                int cursorQuantity = c.getColumnIndex("Quantity");
+                int cursorPrice = c.getColumnIndex("Price");
+                int cursorDiscount = c.getColumnIndex("Discount");
+                if ((cursorProductId != -1)) {
+                    result.add(new Order(c.getString(cursorProductId),
+                            c.getString(cursorProductName),
+                            c.getString(cursorQuantity),
+                            c.getString(cursorPrice),
+                            c.getString(cursorDiscount)
+                    ));
+                }
+
             }while (c.moveToNext());
         }
         return result;
@@ -68,7 +76,7 @@ public class Database extends SQLiteAssetHelper {
     public void cleanCart()
     {
         SQLiteDatabase db = getReadableDatabase();
-        String query = String.format("DELETE FROM OrderDetail");
+        String query = "DELETE FROM OrderDetail";
         db.execSQL(query);
     }
 }

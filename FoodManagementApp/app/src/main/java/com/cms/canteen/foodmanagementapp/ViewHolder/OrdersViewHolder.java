@@ -23,14 +23,14 @@ public class OrdersViewHolder extends RecyclerView.ViewHolder implements View.On
     public TextView totalPrice;
     public Spinner status;
 
-    private List<View.OnClickListener> mListener = new ArrayList<View.OnClickListener>();
+    private final List<View.OnClickListener> mListener = new ArrayList<View.OnClickListener>();
 
     public OrdersViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        items = (TextView)itemView.findViewById(R.id.order_items);
-        totalPrice = (TextView) itemView.findViewById(R.id.order_price);
-        status = (Spinner) itemView.findViewById(R.id.order_status);
+        items = itemView.findViewById(R.id.order_items);
+        totalPrice = itemView.findViewById(R.id.order_price);
+        status = itemView.findViewById(R.id.order_status);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(itemView.getContext(),
                 android.R.layout.simple_spinner_dropdown_item, Request.STATUS_LIST);

@@ -33,20 +33,20 @@ public class ManageFoodItem extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference foodList;
     private DatabaseReference category;
-    private Map<String, String> categoryList = new HashMap<String, String>();
+    private final Map<String, String> categoryList = new HashMap<String, String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_food_item);
 
-        foodNameLayout = (TextInputLayout) findViewById(R.id.food_name_layout);
-        foodDescriptionLayout = (TextInputLayout) findViewById(R.id.food_description_layout);
-        foodPriceLayout = (TextInputLayout) findViewById(R.id.food_price_layout);
-        foodDiscountLayout = (TextInputLayout) findViewById(R.id.food_discount_layout);
-        foodImageLayout = (TextInputLayout) findViewById(R.id.food_image_layout);
-        btnAdd = (Button) findViewById(R.id.btn_add_food);
-        foodCategoryIdSpinner = (Spinner) findViewById(R.id.food_category_id_spinner);
+        foodNameLayout = findViewById(R.id.food_name_layout);
+        foodDescriptionLayout = findViewById(R.id.food_description_layout);
+        foodPriceLayout = findViewById(R.id.food_price_layout);
+        foodDiscountLayout = findViewById(R.id.food_discount_layout);
+        foodImageLayout = findViewById(R.id.food_image_layout);
+        btnAdd = findViewById(R.id.btn_add_food);
+        foodCategoryIdSpinner = findViewById(R.id.food_category_id_spinner);
 
         // Setup Database
         database = FirebaseDatabase.getInstance();
@@ -68,7 +68,7 @@ public class ManageFoodItem extends AppCompatActivity {
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Category currentCategory = snapshot.getValue(Category.class);
-                    categoryList.put(currentCategory.getName().toString(), snapshot.getKey().toString());
+                    categoryList.put(currentCategory.getName(), snapshot.getKey());
                 }
 
                 Set<String> keyList = categoryList.keySet();

@@ -28,9 +28,9 @@ public class ManageCategory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_category);
 
-        categoryNameView = (TextInputLayout)findViewById(R.id.category_name_layout);
-        categoryUrlView = (TextInputLayout)findViewById(R.id.category_url_layout);
-        btnAdd = (Button)findViewById(R.id.btn_add);
+        categoryNameView = findViewById(R.id.category_name_layout);
+        categoryUrlView = findViewById(R.id.category_url_layout);
+        btnAdd = findViewById(R.id.btn_add);
 
         database = FirebaseDatabase.getInstance();
         category = database.getReference("Category");

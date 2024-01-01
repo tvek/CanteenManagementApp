@@ -17,10 +17,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnSignUp = (Button) findViewById(R.id.btnSignUp);
-        btnSignIn = (Button)findViewById(R.id.btnSignIn);
+        btnSignUp = findViewById(R.id.btnSignUp);
+        btnSignIn = findViewById(R.id.btnSignIn);
 
-        slogan = (TextView)findViewById(R.id.slogan);
+        slogan = findViewById(R.id.slogan);
 
         Typeface face = Typeface.createFromAsset(getAssets(),"Fonts/NABILA.TTF");
         slogan.setTypeface(face);
