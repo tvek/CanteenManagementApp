@@ -23,8 +23,12 @@ import com.cms.canteen.foodmanagementapp.ViewHolder.CartAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -112,13 +116,19 @@ public class Cart extends AppCompatActivity {
             builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-//create new request
+                    //create new request
+                    Date c = Calendar.getInstance().getTime();
+
+                    SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                    String orderDate = df.format(c);
+
                     Request request = new Request(
                             Common.currentUser.getPhone(),
                             Common.currentUser.getName(),
                             edtAddress.getText().toString(),
                             txtTotalPrice.getText().toString(),
-                            cart
+                            cart,
+                            orderDate.toString()
                     );
                     //submit to firebase
                     //currentMilli to key

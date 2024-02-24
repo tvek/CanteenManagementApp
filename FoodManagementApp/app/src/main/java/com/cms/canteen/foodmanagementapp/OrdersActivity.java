@@ -2,6 +2,7 @@ package com.cms.canteen.foodmanagementapp;
 
 import static com.cms.canteen.foodmanagementapp.Common.Common.ADMIN_ORDER_INTENT_KEY;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,6 +35,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class OrdersActivity extends AppCompatActivity {
 
@@ -82,7 +89,42 @@ public class OrdersActivity extends AppCompatActivity {
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
                 //Remove swiped item from list and notify the RecyclerView
-                adapter.getRef(viewHolder.getLayoutPosition()).removeValue();
+                DatabaseReference requestDbReference = adapter.getRef(viewHolder.getAdapterPosition());
+                requestDbReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        requestDbReference.removeEventListener(this);
+                        Request request = dataSnapshot.getValue(Request.class);
+                        String storedDateString = request.getOrderDate();
+                        Date currentDate = Calendar.getInstance().getTime();
+                        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+
+                        try {
+                            Date storedDate = formatter.parse(storedDateString);
+                            final long MILLIS_PER_DAY = 24 * 3600 * 1000;
+                            int daysDiff = (int) ((currentDate.getTime() - storedDate.getTime()) / MILLIS_PER_DAY);
+                            if (daysDiff < 1) {
+                                requestDbReference.removeValue();
+                            } else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(OrdersActivity.this);
+                                builder.setTitle("Order Finalized!");
+                                builder.setMessage("Order Deletion can be done only within 1 day from order placement.");
+                                builder.show();
+                                adapter.notifyDataSetChanged();
+                            }
+
+                        } catch (ParseException e) {
+                            throw new RuntimeException(e);
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
 
             }
         };
@@ -111,7 +153,7 @@ public class OrdersActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(OrdersViewHolder viewHolder, Request model, int position) {
                 viewHolder.totalPrice.setText(model.getTotal());
-                viewHolder.deliveryDate.setText(model.getAddress());
+                viewHolder.deliveryDate.setText(model.getDeliveryDate());
 
                 // Configure Status
                 viewHolder.status.setEnabled((User.USER_TYPE_ADMIN.equals(Common.currentUser.getUsertype()))

@@ -7,7 +7,8 @@ import java.util.List;
 public class Request {
     private String phone;
     private String name;
-    private String address;
+    private String deliveryDate;
+    private String orderDate;
     private String total;
     private List<Order> foods;
     //list
@@ -25,10 +26,11 @@ public class Request {
 
     }
 
-    public Request(String phone, String name, String address, String total, List<Order> foods) {
+    public Request(String phone, String name, String deliveryDate, String total, List<Order> foods, String orderDate) {
         this.phone = phone;
         this.name = name;
-        this.address = address;
+        this.deliveryDate = deliveryDate;
+        this.orderDate = orderDate;
         this.total = total;
         this.foods = foods;
         Status = STATUS_PREPARING;
@@ -50,12 +52,20 @@ public class Request {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getDeliveryDate() {
+        return deliveryDate;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setDeliveryDate(String deliveryDate) {
+        this.deliveryDate = deliveryDate;
+    }
+
+    public String getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
     }
 
     public String getTotal() {

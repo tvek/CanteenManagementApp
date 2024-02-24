@@ -71,8 +71,6 @@ public class FoodList extends AppCompatActivity {
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        Toast.makeText(FoodList.this,""+local.getName(),Toast.LENGTH_SHORT).show();
-
                         //start activity
                         Intent foodDetails = new Intent(FoodList.this,FoodDetail.class);
                         foodDetails.putExtra("FoodId",adapter.getRef(position).getKey());
