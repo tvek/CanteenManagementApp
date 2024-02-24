@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -40,6 +41,7 @@ public class OrdersActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference requests;
     RecyclerView recyclerView;
+    TextView noOrderTextView;
     RecyclerView.LayoutManager layoutManager;
 
     FirebaseRecyclerAdapter<Request, OrdersViewHolder> adapter;
@@ -57,6 +59,8 @@ public class OrdersActivity extends AppCompatActivity {
         requests = database.getReference("Requests");
 
         recyclerView = findViewById(R.id.orders_list);
+        noOrderTextView = findViewById(R.id.noItemText);
+        noOrderTextView.setVisibility(View.GONE);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -79,7 +83,6 @@ public class OrdersActivity extends AppCompatActivity {
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
                 //Remove swiped item from list and notify the RecyclerView
                 adapter.getRef(viewHolder.getLayoutPosition()).removeValue();
-                //adapter.notifyItemRemoved(viewHolder.getLayoutPosition());
 
             }
         };
@@ -99,6 +102,12 @@ public class OrdersActivity extends AppCompatActivity {
                 OrdersViewHolder.class,query)
                 //is like select query
         {
+            @Override
+            protected void onDataChanged() {
+                super.onDataChanged();
+                noOrderTextView.setVisibility(((0 == super.getItemCount())) ? View.VISIBLE : View.GONE);
+            }
+
             @Override
             protected void populateViewHolder(OrdersViewHolder viewHolder, Request model, int position) {
                 viewHolder.totalPrice.setText(model.getTotal());
