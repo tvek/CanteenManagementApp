@@ -99,7 +99,7 @@ public class Cart extends AppCompatActivity {
     private void showAlertDialog() {
             AlertDialog.Builder builder = new AlertDialog.Builder(Cart.this);
             builder.setTitle("One More Step!");
-            builder.setMessage("Enter Your Address:");
+            builder.setMessage("Enter Date of Collection: (DD/MM/YYYY)");
 
             final EditText edtAddress = new EditText(Cart.this);
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(

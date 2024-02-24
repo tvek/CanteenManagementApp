@@ -3,6 +3,7 @@ package com.cms.canteen.foodmanagementapp;
 import static com.cms.canteen.foodmanagementapp.Common.Common.ADMIN_ORDER_INTENT_KEY;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -61,6 +62,29 @@ public class OrdersActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         loadOrders();
+        addSwipeToDeleteOrders();
+    }
+
+    void addSwipeToDeleteOrders(){
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            public boolean onMove(RecyclerView recyclerView,
+                                  RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+//                    final int fromPos = viewHolder.getAdapterPosition();
+//                    final int toPos = viewHolder.getAdapterPosition();
+//                    // move item in `fromPos` to `toPos` in adapter.
+                return true;// true if moved, false otherwise
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                //Remove swiped item from list and notify the RecyclerView
+                adapter.getRef(viewHolder.getLayoutPosition()).removeValue();
+                //adapter.notifyItemRemoved(viewHolder.getLayoutPosition());
+
+            }
+        };
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
     private void loadOrders() {
@@ -78,6 +102,7 @@ public class OrdersActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(OrdersViewHolder viewHolder, Request model, int position) {
                 viewHolder.totalPrice.setText(model.getTotal());
+                viewHolder.deliveryDate.setText(model.getAddress());
 
                 // Configure Status
                 viewHolder.status.setEnabled((User.USER_TYPE_ADMIN.equals(Common.currentUser.getUsertype()))
