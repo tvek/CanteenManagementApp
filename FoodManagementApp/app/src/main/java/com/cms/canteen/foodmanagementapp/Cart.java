@@ -1,6 +1,8 @@
 package com.cms.canteen.foodmanagementapp;
 
 import android.content.DialogInterface;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +10,8 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,8 +24,14 @@ import com.cms.canteen.foodmanagementapp.Database.Database;
 import com.cms.canteen.foodmanagementapp.Model.Order;
 import com.cms.canteen.foodmanagementapp.Model.Request;
 import com.cms.canteen.foodmanagementapp.ViewHolder.CartAdapter;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.text.NumberFormat;
@@ -122,21 +132,42 @@ public class Cart extends AppCompatActivity {
                     SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
                     String orderDate = df.format(c);
 
-                    Request request = new Request(
-                            Common.currentUser.getPhone(),
-                            Common.currentUser.getName(),
-                            edtAddress.getText().toString(),
-                            txtTotalPrice.getText().toString(),
-                            cart,
-                            orderDate.toString()
-                    );
-                    //submit to firebase
-                    //currentMilli to key
-                    requests.child(String.valueOf(System.currentTimeMillis())).setValue(request);
-                    //delete cart
-                    new Database(getBaseContext()).cleanCart();
-                    Toast.makeText(Cart.this, "Your  Order has been Confirmed!", Toast.LENGTH_SHORT).show();
-                    finish();
+                    Query orderDateQuery = requests.orderByChild("orderDate").equalTo(orderDate.toString());
+                    orderDateQuery.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            if (50 <= dataSnapshot.getChildrenCount()){
+                                String message = "Current " + String.valueOf(dataSnapshot.getChildrenCount()) + "/50. 50 orders are only allowed per day. Please book the next day.";
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Cart.this);
+                                builder.setTitle("Today's Booking is FULL!");
+                                builder.setMessage(message);
+                                builder.show();
+                            } else {
+
+                                Request request = new Request(
+                                        Common.currentUser.getPhone(),
+                                        Common.currentUser.getName(),
+                                        edtAddress.getText().toString(),
+                                        txtTotalPrice.getText().toString(),
+                                        cart,
+                                        orderDate.toString()
+                                );
+                                //submit to firebase
+                                //currentMilli to key
+                                requests.child(String.valueOf(System.currentTimeMillis())).setValue(request);
+                                //delete cart
+                                new Database(getBaseContext()).cleanCart();
+                                Toast.makeText(Cart.this, "Your  Order has been Confirmed!", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
                 }
             });
             builder.show();
