@@ -5,6 +5,9 @@ import android.content.DialogInterface;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -55,6 +58,7 @@ public class Cart extends AppCompatActivity {
 
     List<Order> cart = new ArrayList<>();
     CartAdapter adapter;
+    EditText edtAddress;
 
     void addSwipeToDelete(){
         ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
@@ -115,7 +119,8 @@ public class Cart extends AppCompatActivity {
             builder.setTitle("One More Step!");
             builder.setMessage("Enter Date of Collection: (DD/MM/YYYY)");
 
-            final EditText edtAddress = new EditText(Cart.this);
+            edtAddress = new EditText(Cart.this);
+
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.MATCH_PARENT
@@ -127,38 +132,21 @@ public class Cart extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     //create new request
-                    Date c = Calendar.getInstance().getTime();
 
-                    SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-                    String orderDate = df.format(c);
-
+                    String orderDate = getCurrentDate();
                     Query orderDateQuery = requests.orderByChild("orderDate").equalTo(orderDate.toString());
                     orderDateQuery.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             if (50 <= dataSnapshot.getChildrenCount()){
-                                String message = "Current " + String.valueOf(dataSnapshot.getChildrenCount()) + "/50. 50 orders are only allowed per day. Please book the next day.";
+                                String message = "Current " + String.valueOf(dataSnapshot.getChildrenCount()) + "/50. 50 orders are only allowed per day. Please book on the next day.";
                                 AlertDialog.Builder builder = new AlertDialog.Builder(Cart.this);
                                 builder.setTitle("Today's Booking is FULL!");
                                 builder.setMessage(message);
                                 builder.show();
                             } else {
-
-                                Request request = new Request(
-                                        Common.currentUser.getPhone(),
-                                        Common.currentUser.getName(),
-                                        edtAddress.getText().toString(),
-                                        txtTotalPrice.getText().toString(),
-                                        cart,
-                                        orderDate.toString()
-                                );
-                                //submit to firebase
-                                //currentMilli to key
-                                requests.child(String.valueOf(System.currentTimeMillis())).setValue(request);
-                                //delete cart
-                                new Database(getBaseContext()).cleanCart();
-                                Toast.makeText(Cart.this, "Your  Order has been Confirmed!", Toast.LENGTH_SHORT).show();
-                                finish();
+                                //requestPayment();
+                                finishOrderPlacement();
                             }
                         }
 
@@ -172,6 +160,55 @@ public class Cart extends AppCompatActivity {
             });
             builder.show();
         }
+
+    private void requestPayment() {
+        String GOOGLE_PAY_PACKAGE_NAME = "com.google.android.apps.nbu.paisa.user";
+        int GOOGLE_PAY_REQUEST_CODE = 123;
+
+        Uri uri =
+                new Uri.Builder()
+                        .scheme("upi")
+                        .authority("pay")
+                        .appendQueryParameter("pa", "thomasvml@okhdfcbank")
+                        .appendQueryParameter("pn", "Thomas Easo")
+                        .appendQueryParameter("mc", "your-merchant-code")
+                        .appendQueryParameter("tr", "your-transaction-ref-id")
+                        .appendQueryParameter("tn", "App Testing")
+                        .appendQueryParameter("am", txtTotalPrice.getText().toString())
+                        .appendQueryParameter("cu", "INR")
+                        .appendQueryParameter("url", "your-transaction-url")
+                        .build();
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(uri);
+        intent.setPackage(GOOGLE_PAY_PACKAGE_NAME);
+        startActivityForResult(intent, GOOGLE_PAY_REQUEST_CODE);
+    }
+
+    private String getCurrentDate() {
+            Date c = Calendar.getInstance().getTime();
+
+            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+            return df.format(c);
+        }
+    private void finishOrderPlacement() {
+
+        String orderDate = getCurrentDate();
+        Request request = new Request(
+                Common.currentUser.getPhone(),
+                Common.currentUser.getName(),
+                edtAddress.getText().toString(),
+                txtTotalPrice.getText().toString(),
+                cart,
+                orderDate.toString()
+        );
+        //submit to firebase
+        //currentMilli to key
+        requests.child(String.valueOf(System.currentTimeMillis())).setValue(request);
+        //delete cart
+        new Database(getBaseContext()).cleanCart();
+        Toast.makeText(Cart.this, "Your  Order has been Confirmed!", Toast.LENGTH_SHORT).show();
+        finish();
+    }
 
     private void loadListFood() {
         cart = new Database(this).getCarts();
