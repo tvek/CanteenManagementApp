@@ -138,6 +138,7 @@ public class Cart extends AppCompatActivity {
                     orderDateQuery.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
+                            orderDateQuery.removeEventListener(this);
                             if (50 <= dataSnapshot.getChildrenCount()){
                                 String message = "Current " + String.valueOf(dataSnapshot.getChildrenCount()) + "/50. 50 orders are only allowed per day. Please book on the next day.";
                                 AlertDialog.Builder builder = new AlertDialog.Builder(Cart.this);
