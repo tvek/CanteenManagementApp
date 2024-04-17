@@ -22,6 +22,7 @@ public class OrdersViewHolder extends RecyclerView.ViewHolder implements View.On
     public TextView items;
     public TextView totalPrice;
     public TextView username;
+    public TextView phone;
 
     public TextView deliveryDate;
     public Spinner status;
@@ -36,6 +37,7 @@ public class OrdersViewHolder extends RecyclerView.ViewHolder implements View.On
         status = itemView.findViewById(R.id.order_status);
         deliveryDate = itemView.findViewById(R.id.delivery_date);
         username = itemView.findViewById(R.id.username);
+        phone = itemView.findViewById(R.id.phone);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(itemView.getContext(),
                 android.R.layout.simple_spinner_dropdown_item, Request.STATUS_LIST);

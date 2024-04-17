@@ -48,4 +48,5 @@
     <string name="action_settings">Settings</string>
     <string name="delivery_date">Delivery Date (DD/MM/YYYY)</string>
     <string name="no_orders">No Orders Yet</string>
+    <string name="phone">Contact Number</string>
 </resources>
