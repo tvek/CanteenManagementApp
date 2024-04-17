@@ -159,6 +159,7 @@ public class OrdersActivity extends AppCompatActivity {
                 viewHolder.status.setEnabled((User.USER_TYPE_ADMIN.equals(Common.currentUser.getUsertype()))
                         && (isAdminPageView));
                 viewHolder.status.setSelection(Request.STATUS_LIST.indexOf(model.getStatus()));
+                viewHolder.username.setText(model.getName());
                 viewHolder.status.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
